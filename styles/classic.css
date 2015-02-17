@@ -1,0 +1,87 @@
+#classic {		
+	display: none;
+	padding: 0px 0px 0px 0px;
+	margin: 0px auto;
+	width: 481px;
+	height: 854px;
+	background-color: black;
+}
+
+#answer {
+	margin:0px 0px 0px 0px;
+	display: none;
+	z-index: 3;
+	position: absolute;
+	top:350px;
+	margin-left:70px;	
+}
+
+	#answer #sub {
+		font-size:21px;
+		font-family:"Bradley";
+		font-weight:bold;
+		cursor: pointer;
+		border:none;
+		border-radius: 15px;
+		margin-left:5px;
+	}
+	
+	#answer #sub:hover {
+		background-color:#c0c0c0;
+	}
+	
+	#answer #textline {	
+		width:250px;
+		font-family:"Bradley";
+		font-weight:bold;
+		font-size:20px;
+		padding:2px 10px 2px 10px;
+		cursor:text;
+		border:none;
+		border-radius: 15px;	
+	}
+
+img.logo {
+	width: 110px;
+	float: left;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+img.logo:hover {	
+	cursor: pointer;
+}
+
+h3.actionlink {
+	margin:0px 0px 0px 0px;
+	padding: 20px 0px 0px 0px;
+	font-size:25px;
+	font-family: Bradley;
+	color:white;
+	text-align: center;
+	text-decoration:underline;
+}
+h3.actionlink:hover {
+	cursor:pointer;
+}
+h3#quit {
+	width: 20%;
+	float: left;
+}
+h3#save_score, h3#save_state {
+	width: 30%;
+	float: right;
+}
+
+h3.score {
+	margin:10px 0px 5px 0px;
+	padding: 15px 0px 0px 0px;
+	font-size:35px;
+	font-family: Bradley;
+	color:white;
+	text-align: center;
+	width: 100%;
+	clear: both;
+}
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="styles/main.css" />
+		<link rel="stylesheet" type="text/css" href="styles/classic.css" />
+		<title>Logo Warrior</title>
+		<script src="scripts/jquery.js"></script>
+		<script type="text/javascript" src="scripts/main.js"></script>			
+		<script type="text/javascript" src="scripts/tile.js"></script>	
+		<script type="text/javascript" src="scripts/classic.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadResources();				
+				$("#gamestart").click(function() {
+					initializeClassic();
+				});	
+				$("#loadgame").click(function() {
+					var loadRequestMessage = {
+						messageType: "LOAD_REQUEST"
+					};
+					parent.postMessage(loadRequestMessage, '*');
+				});	
+				
+				addEventListener("message", onMessage);	
+			});
+			/* function that get called when some message from the parent window arrives */
+			function onMessage(event){
+				received_message = event.data
+				if(received_message.messageType == "MESSAGE") {
+					alert(received_message.message);
+				} else {
+					tileList = received_message.gameState.tilemap;
+					var tiles = [];
+					for(i=0; i< tileList.length; i++) {
+						var newTile = new Tile(tileList[i].src.replace(/["]/g, ""), tileList[i].name.replace(/["]/g, ""), parseInt(tileList[i].score));
+						newTile.isOpen = (JSON.stringify(tileList[i].open) === 'true');
+						tiles.push(newTile);
+					}
+					initializeClassic(tiles, received_message.gameState.score);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="main">
+			<img id='loadimg' src='image/loader.gif' />
+			<img class="resource" id="load_logo" alt="" src="image/logo.png" />
+			<img class="resource" src="image/tick.png" />
+			<img class="resource" src="image/wrong.png" />				
+			<div id="game_menu">
+				<h2 id="gamestart">Game Start</h2>
+				<h2 id="loadgame">Load Game</h2>
+			</div>		
+			<div id="classic">
+				<div id="answer">
+					<input type="text" id="textline" value="" />
+					<input type="button" id="sub" value="Check" />
+				</div>
+				<div id="footer">
+					<h3 class='score'>Your score: <span id='stat'>0</span></h3>
+					<h3 class='actionlink' id="quit">Quit</h3>
+					<h3 class='actionlink' id="save_score">Save Score</h3>
+					<h3 class='actionlink' id="save_state">Save State</h3>
+				</div>
+			</div>										
+		</div>		
+	</body>
+	
+</html>

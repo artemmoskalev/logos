@@ -1,0 +1,49 @@
+@font-face{
+	font-family:"Bradley";
+	src: url('bradley.eot');
+}
+@font-face {
+	font-family: "Bradley";
+	font-weight: normal;
+	font-style: normal;	
+	src: url("bradley.ttf");
+}
+
+#main {	
+	padding: 0px 0px 0px 0px;
+	margin: 0px auto;
+	width: 480px;
+	height: 854px;
+	background-color: black;
+	border: 2px solid black;
+}
+#main #loadimg {
+	display: none;
+	width: 120px;
+	padding: 0px 0px 0px 0px;
+	margin: 0 auto;
+	margin-top: 65%;
+}
+#main .resource {
+	display: none;
+}
+#main #load_logo {
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 60%;
+}
+
+#main #game_menu {
+	display: none;
+	width: 300px;
+	margin: 220px 0px 0px 90px;
+}
+#main #game_menu h2 {
+	text-align: center;
+	font-size: 35px;
+	font-family: Bradley;
+	color: #FFFFFF;
+}
+#main #game_menu h2:hover {
+	cursor:pointer;
+}
